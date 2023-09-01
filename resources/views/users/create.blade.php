@@ -2,7 +2,7 @@
 @section("content")
     <div class="card">
         <div class="card-header">
-            {{ __("Edición de Usuario") }}
+            {{ __("Crear Usuario") }}
         </div>
         <div class="card-body">
             <form method="post" action="{{ route("usuario.store") }}">

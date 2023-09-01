@@ -23,10 +23,11 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         request()->flash();
+
         $rules = [];
         $rules["name"] = ["required", "string"];
-        $rules["email"] = ["required", "email", $this->user() ? Rule::unique('users')->ignore($this->user()->id) : "unique:users,email"];
-        $rules["password"] = [$this->user() ? "sometimes" : "required", "confirmed"];
+        $rules["email"] = ["required", "email", $this->user ? Rule::unique('users')->ignore($this->user->id) : "unique:users,email"];
+        $rules["password"] = [ $this->user ? "sometimes" : "required", "confirmed"];
 
         return $rules;
     }
